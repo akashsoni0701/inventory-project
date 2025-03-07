@@ -1,19 +1,18 @@
 # Flask Inventory Management API
 
-This is a **Flask-based Inventory Management API** that allows users to:
-- 📤 **Upload CSV files** for inventory & members
-- 📌 **Book items** from the inventory
-- ❌ **Cancel bookings**
-- 📋 **Fetch booking records**
-- 📊 **Store data in PostgreSQL**
+This is a Flask-based Inventory Management API that allows users to:
+- 📤 Upload CSV files** for inventory & members
+- 📌 Book items from the inventory
+- ❌ Cancel bookings
+- 📋 Fetch booking records
+- 📊 Store data in PostgreSQL
 
-This app is **Dockerized** and easy to deploy. Follow the setup instructions below to get started.
+This app is Dockerized and easy to deploy. Follow the setup instructions below to get started.
 
-## 🚀 Quick Start
+🚀 Quick Start
 
 1️⃣ Clone the Repository
-```bash
-git clone https://gith
+git clone https://github.com/akashsoni0701/inventory-project.git
 
 2️⃣ Set Up Virtual Environment (Optional)
 python -m venv venv
