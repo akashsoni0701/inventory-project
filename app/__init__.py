@@ -1,5 +1,6 @@
 import logging
 from flask import Flask
+from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
 from app.config import Config
 from flask_cors import CORS
@@ -9,6 +10,7 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(
 logger = logging.getLogger("inventory_app")
 
 db = SQLAlchemy()
+migrate = Migrate()
 
 
 def create_app() -> Flask:
@@ -24,6 +26,7 @@ def create_app() -> Flask:
     CORS(app)
 
     db.init_app(app)
+    migrate.init_app(app, db)
 
     from app.routes import inventory, booking
     app.register_blueprint(inventory.bp)
