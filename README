@@ -1,0 +1,92 @@
+# Flask Inventory Management API
+
+This is a **Flask-based Inventory Management API** that allows users to:
+- 📤 **Upload CSV files** for inventory & members
+- 📌 **Book items** from the inventory
+- ❌ **Cancel bookings**
+- 📋 **Fetch booking records**
+- 📊 **Store data in PostgreSQL**
+
+This app is **Dockerized** and easy to deploy. Follow the setup instructions below to get started.
+
+## 🚀 Quick Start
+
+1️⃣ Clone the Repository
+```bash
+git clone https://gith
+
+2️⃣ Set Up Virtual Environment (Optional)
+python -m venv venv
+source venv/bin/activate  # macOS/Linux
+venv\Scripts\activate     # Windows
+
+3️⃣ Install Dependencies
+pip install -r requirements.txt
+
+4️⃣ Set Up the Database
+Modify app/config.py with your PostgreSQL credentials, then run:
+flask db init
+flask db migrate -m "Initial migration"
+flask db upgrade
+
+5️⃣ Run the Flask App
+flask run
+
+
+🐳 Run with Docker
+
+1️⃣ Build the Docker Image
+docker build -t inventory-project .
+
+2️⃣ Run the Container
+docker run -p 5000:5000 inventory-project
+
+OR use Docker Compose to run Flask + PostgreSQL:
+docker-compose up --build
+
+
+📌 API Endpoints
+
+1. POST /upload
+Request:
+-Upload a CSV file (inventory.csv or member.csv)
+-The app automatically detects the table based on CSV headers.
+
+Response:
+{
+  "message": "CSV file processed successfully"
+}
+
+
+2. POST /book
+Request:
+{
+  "member_id": 1,
+  "inventory_id": 2
+}
+
+Response:
+{
+  "message": "Item successfully booked"
+}
+
+3. POST /cancel
+Request:
+{
+  "booking_id": 3
+}
+
+Response:
+{
+  "message": "Booking canceled successfully"
+}
+
+4. GET /bookings
+Response:
+[
+  {
+    "booking_id": 1,
+    "member_name": "John Doe",
+    "inventory_name": "Laptop"
+  }
+]
