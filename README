@@ -34,14 +34,10 @@ flask run
 
 🐳 Run with Docker
 
-1️⃣ Build the Docker Image
-docker build -t inventory-project .
-
-2️⃣ Run the Container
-docker run -p 5000:5000 inventory-project
-
-OR use Docker Compose to run Flask + PostgreSQL:
+Use Docker Compose to run Flask + PostgreSQL:
 docker-compose up --build
+
+Server will start running on:  http://127.0.0.1:5001
 
 
 📌 API Endpoints
